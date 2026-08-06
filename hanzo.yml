@@ -1,0 +1,12 @@
+# viem — the TypeScript Ethereum interface. npm package, no image.
+#
+# The gate is the package build: tsc over the whole of src/ for cjs, esm and
+# declarations. viem is types-first, so this is not a packaging step — it is the
+# typecheck of every action, transport and chain definition in the library, and
+# it fails on any of them.
+#
+# The behavioural suite is not here: it wants a local anvil fork with an
+# archive-node RPC key, which is a fixture this runner does not have.
+test:
+  - name: build
+    run: pnpm install --frozen-lockfile && pnpm build
